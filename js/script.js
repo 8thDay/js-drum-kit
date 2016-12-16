@@ -19,7 +19,8 @@ function removeTransition(event) {
 // wait for click on div.key, then play sound and perform transitions
 var clickedKey = document.querySelectorAll('.key');
 clickedKey.forEach(key => key.addEventListener('click', function(e) {
-  playSound (e.path[1].dataset.key);
+  playSound (this.dataset.key);
+  //console.log(this.dataset.key);
 }));
 
 // wait for key to be pressed, then play sound and perform transitions
