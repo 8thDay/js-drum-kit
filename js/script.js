@@ -1,6 +1,6 @@
 function playSound(keyCode) {
-  const audio = document.querySelector(`audio[data-key="${keyCode}"]`); // select the audio element with the given keyCode
-  const key = document.querySelector(`.key[data-key="${keyCode}"]`);    // select the element with a class of "key" and the given keyCode
+  var audio = document.querySelector(`audio[data-key="${keyCode}"]`); // select the audio element with the given keyCode
+  var key = document.querySelector(`.key[data-key="${keyCode}"]`);    // select the element with a class of "key" and the given keyCode
   if (!audio) { // if there isn't an audio element with given key...
     return;     // stop the function from running
   }
@@ -17,7 +17,7 @@ function removeTransition(event) {
 }
 
 // wait for click on div.key, then play sound and perform transitions
-const clickedKey = document.querySelectorAll('.key');
+var clickedKey = document.querySelectorAll('.key');
 clickedKey.forEach(key => key.addEventListener('click', function(e) {
   playSound (e.path[1].dataset.key);
 }));
@@ -28,5 +28,5 @@ window.addEventListener('keydown', function(event) {
 });
 
 // wait for transition to end, then remove it
-const keys = document.querySelectorAll('.key');
+var keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
